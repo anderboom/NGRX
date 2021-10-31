@@ -5,16 +5,17 @@ import {
 
 import { environment } from '../../environments/environment';
 import {
+  COUNTER_KEY,
   counterReducer,
   CounterState,
 } from './counter';
 
 export interface State {
-  counter: CounterState;
+  [COUNTER_KEY]: CounterState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  counter: counterReducer,
+  [COUNTER_KEY]: counterReducer,
 };
 
 export const metaReducers: MetaReducer<State>[] = !environment.production

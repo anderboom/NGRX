@@ -9,6 +9,7 @@ import {
   decrease,
   increase,
   reset,
+  updatedAtSelector,
 } from './reducers/counter';
 
 @Component({
@@ -17,23 +18,20 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  updatedAt?: number;
   count$ = this.store.select(countSelector);
   isNegative$ = this.count$.pipe(map((count) => count <= 0));
+  updatedAt$ = this.store.select(updatedAtSelector);
 
   constructor(private store: Store) {}
 
   increase(): void {
-    this.updatedAt = Date.now();
     this.store.dispatch(increase());
   }
 
   decrease(): void {
-    this.updatedAt = Date.now();
     this.store.dispatch(decrease());
   }
   reset(): void {
-    this.updatedAt = Date.now();
     this.store.dispatch(reset());
   }
 }
