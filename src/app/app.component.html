@@ -1,6 +1,6 @@
 <button class="fz-60 m-20 p-50" (click)="increase()">+1</button>
-<button class="fz-60 m-20 p-50" (click)="decrease()" [disabled]="isNegative">-1</button>
+<button class="fz-60 m-20 p-50" (click)="decrease()" [disabled]="isNegative$ | async">-1</button>
 <button class="fz-60 m-20 p-50" (click)="reset()">=0</button>
 
-<p class="fz-60">Результат: {{counter}}</p>
+<p class="fz-60">Результат: {{count$ | async}}</p>
 <p class="fz-60">Время обновления: {{updatedAt | date: "HH:mm:ss dd/MM/yyyy"}}</p>
